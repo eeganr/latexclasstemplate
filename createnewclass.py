@@ -84,8 +84,8 @@ if not dir_check:
 else:
     print("Directory detected")
 
-class_id = input("Enter class ID (e.g. STATS116): ")
-short_id = input("Enter short ID (e.g. STATS): ")
+class_id = input("Enter class ID (e.g. STATS116_ProbTheory): ")
+short_id = input("Enter short ID (e.g. STATS116): ")
 
 if not (class_id and short_id):
     print("Empty field entered, exiting")
