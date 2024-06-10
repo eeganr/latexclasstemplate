@@ -57,10 +57,16 @@ while True:
             break
 
 folder = f"{notes_folder}/{parent}"
-dir_check = os.path.exists(folder)
+dir_exists = os.path.exists(folder)
+if github_actions:
+    command = f'git ls-remote https://github.com/{github_username}/{parent}.git'
+    ret = subprocess.run(command, capture_output=True, shell=True)
+    repo_exists = bool(ret.stdout.decode())
+else:
+    repo_exists = False
 
-if not dir_check:
-    print("Directory not detected, creating now")
+if not (repo_exists or dir_exists):
+    print("Neither repository nor directory detected, creating now")
     os.mkdir(folder)
     shutil.copyfile("commit.sh", f"{folder}/commit.sh")
     shutil.copyfile(".flake8", f"{folder}/.flake8")
@@ -80,9 +86,14 @@ if not dir_check:
         command = f'gh repo create {parent} --private; git remote add origin https://github.com/{github_username}/{parent}.git; git push -u origin main'
         if sys: command = command.replace(';', ' &')
         subprocess.run(command, shell=True, cwd=folder)
-    
+
+elif github_actions and repo_exists and not dir_exists:
+    print("Github repo detected, cloning")
+    command = f'git clone https://github.com/{github_username}/{parent}.git {folder}'
+    subprocess.run(command, shell=True)
+
 else:
-    print("Directory detected")
+    print("Directory detected.")
 
 class_id = input("Enter class ID (e.g. STATS116_ProbTheory): ")
 short_id = input("Enter short ID (e.g. STATS116): ")
