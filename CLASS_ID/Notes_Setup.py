@@ -2,7 +2,7 @@ import os
 import shutil
 from datetime import date
 
-class_id = "ECON440_24"
+class_id = "ECON440"
 short_id = "ECON"
 
 months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
@@ -18,7 +18,7 @@ filename = f"{short_id}_{today[5:]}"
 
 os.mkdir(f"./{class_id}/{filename}")
 
-shutil.copyfile(f"./{class_id}/{short_id}_NOTES_TEMPLATE/{short_id}_M-DD.tex", f"./{class_id}/{filename}/{filename}.tex")
+shutil.copyfile(f"./{class_id}/{short_id}_NOTES_TEMPLATE/{short_id}_MM-DD.tex", f"./{class_id}/{filename}/{filename}.tex")
 
 filename = f"./{class_id}/{filename}/{filename}.tex"
 

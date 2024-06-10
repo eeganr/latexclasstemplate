@@ -1,7 +1,7 @@
 import os
 import shutil
 
-class_id = "ECON440_24"
+class_id = "ECON440"
 short_id = "ECON"
 
 num = input("Enter HW number: ")

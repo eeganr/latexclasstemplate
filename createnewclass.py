@@ -71,14 +71,51 @@ if not dir_check:
     with open(f"{folder}/README.md", 'w') as f:
         s = s.replace('name', parent)
         f.write(s)
-    command = 'git init; git add .; git commit -m "initialized"'
-    ret = subprocess.run(command, shell=True, cwd=folder)
+    command = 'git init; git add .; git commit -m "initialized"; git branch -M main;'
+    subprocess.run(command, shell=True, cwd=folder)
     if github_actions:
-        # command = f'git remote add origin git@github.com:{github_username}/{parent}.git; git push -u origin main'
-        ret = subprocess.run(command, shell=True)
+        command = f'gh repo create {parent} --private; git remote add origin https://github.com/{github_username}/{parent}.git; git push -u origin main'
+        subprocess.run(command, shell=True, cwd=folder)
     
 else:
     print("Directory detected")
 
-# class_id = input("Enter class ID (e.g. STATS116)")
-# short_id = input("Enter short ID (e.g. STATS)")
+class_id = input("Enter class ID (e.g. STATS116): ")
+short_id = input("Enter short ID (e.g. STATS): ")
+
+if not (class_id and short_id):
+    print("Empty field entered, exiting")
+    exit()
+
+os.mkdir(f"{folder}/{class_id}")
+os.mkdir(f"{folder}/{class_id}/{short_id}_NOTES_TEMPLATE")
+os.mkdir(f"{folder}/{class_id}/{short_id}_HW_TEMPLATE")
+
+shutil.copyfile("CLASS_ID/SHORT_HW_TEMPLATE/SHORT_HW_X.tex", f"{folder}/{class_id}/{short_id}_HW_TEMPLATE/{short_id}_HW_X.tex")
+shutil.copyfile("CLASS_ID/SHORT_NOTES_TEMPLATE/SHORT_MM-DD.tex", f"{folder}/{class_id}/{short_id}_NOTES_TEMPLATE/{short_id}_MM-DD.tex")
+
+shutil.copyfile("CLASS_ID/Notes_Setup.py", f"{folder}/{class_id}/Notes_Setup.py")
+shutil.copyfile("CLASS_ID/HW_Setup.py", f"{folder}/{class_id}/HW_Setup.py")
+
+def replace_ids(filename):
+    with open(filename) as f:
+        global s
+        s = f.read()
+
+    with open(filename, 'w') as f:
+        s = s.replace('ECON440', class_id)
+        if filename[-2:] == "py":
+            s = s.replace('ECON', short_id)
+        f.write(s)
+    
+replace_ids(f"{folder}/{class_id}/Notes_Setup.py")
+replace_ids(f"{folder}/{class_id}/HW_Setup.py")
+replace_ids(f"{folder}/{class_id}/{short_id}_NOTES_TEMPLATE/{short_id}_MM-DD.tex")
+replace_ids(f"{folder}/{class_id}/{short_id}_HW_TEMPLATE/{short_id}_HW_X.tex")
+
+command = f'git init; git add .; git commit -m "{class_id} added"'
+subprocess.run(command, shell=True, cwd=folder)
+
+if github_actions:
+    command = 'git push -u origin main'
+    subprocess.run(command, shell=True, cwd=folder)
