@@ -118,7 +118,7 @@ def replace_ids(filename):
         s = f.read()
 
     with open(filename, 'w') as f:
-        if filename[-3:] == "tex":
+        if filename[-2:] == "py":
             s = s.replace('ECON440', class_id)
         s = s.replace('ECON', short_id)
         f.write(s)
