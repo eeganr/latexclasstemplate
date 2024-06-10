@@ -118,9 +118,9 @@ def replace_ids(filename):
         s = f.read()
 
     with open(filename, 'w') as f:
-        s = s.replace('ECON440', class_id)
-        if filename[-2:] == "py":
-            s = s.replace('ECON', short_id)
+        if filename[-3:] == "tex":
+            s = s.replace('ECON440', class_id)
+        s = s.replace('ECON', short_id)
         f.write(s)
     
 replace_ids(f"{folder}/{class_id}/Notes_Setup.py")
