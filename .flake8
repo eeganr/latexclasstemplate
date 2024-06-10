@@ -1,0 +1,33 @@
+[flake8]
+# flake8 will not check these files unless explicitly told to
+exclude = 
+    .git, .gitignore, README.md, Dockerfile, __init__.py,
+    *.txt, *.conf, *.sh,
+    .idea/, .vscode/, static/,
+    manage.py
+
+
+# print total number of errors. off for now
+count = False
+
+# Print report of error occurences. off for now
+statistics = False
+
+# =================   
+# Rules to ignore
+# =================
+# E261: At least 2 spaces before inline comment
+# E302: expected 2 blank lines
+# E303: too many blank lines
+# E305: 2 blank lines after class or function definition
+# E402: module level import not at top of file
+# E501: line too long (> 79char)
+# F401  imported but unused
+# F403: 'from module import *' used; unable to detect undefined names
+# W291: trailing whitespace
+# W292: no newline at end of file
+# W293: blank line contains whitespace
+# W391: blank line at end of file
+# N806: no all uppercase variables
+
+ignore = E261, E227, E127, E266, E128, E226, E302, E303, E305, E402, E501, W291, W292, W293, W391, W503, N806, F401, F403, F405, E731, E711, E701, E741, F841, E306, W605
