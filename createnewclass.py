@@ -71,10 +71,10 @@ if not dir_check:
     with open(f"{folder}/README.md", 'w') as f:
         s = s.replace('name', parent)
         f.write(s)
-    command = f'git init {folder}; git add .; git branch -M main; git commit -m "initialized"'
-    ret = subprocess.run(command, shell=True)
+    command = 'git init; git add .; git commit -m "initialized"'
+    ret = subprocess.run(command, shell=True, cwd=folder)
     if github_actions:
-        command = f'git remote add origin git@github.com:{github_username}/{parent}.git; git push -u origin main'
+        # command = f'git remote add origin git@github.com:{github_username}/{parent}.git; git push -u origin main'
         ret = subprocess.run(command, shell=True)
     
 else:
