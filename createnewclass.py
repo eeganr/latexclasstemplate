@@ -69,6 +69,7 @@ if not (repo_exists or dir_exists):
     print("Neither repository nor directory detected, creating now")
     os.mkdir(folder)
     shutil.copyfile("commit.sh", f"{folder}/commit.sh")
+    shutil.copyfile("commit.bat", f"{folder}/commit.bat")
     shutil.copyfile(".flake8", f"{folder}/.flake8")
     shutil.copyfile(".gitignore", f"{folder}/.gitignore")
     shutil.copyfile("eeganlatex.sty", f"{folder}/eeganlatex.sty")
