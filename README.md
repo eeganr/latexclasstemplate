@@ -102,6 +102,6 @@ You can run the "notes_setup.py" file to create a new notes doc for the day, or 
 
 Then, once you're done editing for the class, simply go to the top menu, hit Terminal -> New Terminal.
 
-You can then type "commit" on mac or "./commit" on windows and everything will be uploaded to the cloud!
+You can then type "./commit" and everything will be uploaded to the cloud!
 
 If you make changes on one computer and want to have them update on another, simply type "git pull" and that's it!
