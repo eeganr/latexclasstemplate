@@ -5,6 +5,7 @@ import subprocess
 import platform
 
 your_schedule = "quarter" # replace with "semester" if you're on a semester system
+your_name = "Eegan Ram"
 github_username = "eeganr"
 github_actions = True # Change to false if you wanna do this manually
 
@@ -123,11 +124,22 @@ def replace_ids(filename):
             s = s.replace('ECON440', class_id)
         s = s.replace('ECON', short_id)
         f.write(s)
+
+def replace_name(filename):
+    with open(filename) as f:
+        global s
+        s = f.read()
+
+    with open(filename, 'w') as f:
+        s = s.replace('First Last', your_name)
+        f.write(s)
     
 replace_ids(f"{folder}/{class_id}/Notes_Setup.py")
 replace_ids(f"{folder}/{class_id}/HW_Setup.py")
 replace_ids(f"{folder}/{class_id}/{short_id}_NOTES_TEMPLATE/{short_id}_MM-DD.tex")
 replace_ids(f"{folder}/{class_id}/{short_id}_HW_TEMPLATE/{short_id}_HW_X.tex")
+replace_name(f"{folder}/{class_id}/{short_id}_NOTES_TEMPLATE/{short_id}_MM-DD.tex")
+replace_name(f"{folder}/{class_id}/{short_id}_HW_TEMPLATE/{short_id}_HW_X.tex")
 
 command = f'git init; git add .; git commit -m "{class_id} added"'
 if sys: command = command.replace(';', ' &')
