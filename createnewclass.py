@@ -4,10 +4,12 @@ from datetime import date, datetime
 import subprocess
 import platform
 
+# Your edits go in this section.
+
 your_schedule = "quarter" # replace with "semester" if you're on a semester system
 your_name = "Eegan Ram"
 github_username = "eeganr"
-github_actions = True # Change to false if you wanna do this manually
+github_actions = True # Change to false if you wanna do this manually (you probably don't).
 
 # ----------------
 
