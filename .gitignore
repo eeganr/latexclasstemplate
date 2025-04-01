@@ -6,3 +6,5 @@
 *.out
 *.pre
 *(busy)
+*.one
+*.onetoc2
