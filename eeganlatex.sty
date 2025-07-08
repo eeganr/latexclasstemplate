@@ -203,11 +203,44 @@
 \newcommand{\RR}{\mathbb R}
 \newcommand{\ZZ}{\mathbb Z}
 
-% Stanford Material
+% Stanford Physics81
+
+\newcommand{\del}{\vec{\nabla}}
+
+% Stanford Math61CM & Math 53
 
 \newcommand{\la}{\langle}
 \newcommand{\ra}{\rangle}
 \newcommand{\F}{\mathcal F} % Fourier
+\newcommand{\BP}{\mathbf P}
+\DeclareMathOperator{\Sup}{Sup}
+\DeclareMathOperator{\Inf}{Inf}
+
+% Stanford Math 63DM
+
+\newcommand{\PP}{\mathbb P} % Probability
+\newcommand{\EE}{\mathbb E}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\var}{var}
+
+\DeclareMathOperator{\Poi}{Poi}
+\DeclareMathOperator{\Geo}{Geo}
+\DeclareMathOperator{\Bin}{Bin}
+\DeclareMathOperator{\NegBin}{NegBin}
+\DeclareMathOperator{\Ber}{Ber}
+\DeclareMathOperator{\Exp}{Exp}
+
+\def\lc{\left\lceil}   
+\def\rc{\right\rceil}
+\def\lf{\left\lfloor}   
+\def\rf{\right\rfloor}
+
+\usepackage{mathtools}
+\DeclarePairedDelimiter\autobracket{(}{)}
+\newcommand{\pa}[1]{\autobracket*{#1}}
+
+% Dunno
+
 
 \newcommand{\charin}{\text{ char }}
 \DeclareMathOperator{\sign}{sign}
@@ -371,9 +404,9 @@
   \ifevanauthor
     \title{} % empty title to avoid crashes
     \ifluatex
-      \author{Evan Chen《陳誼廷》}
+      \author{Eegan Ram}
     \else
-      \author{Evan Chen}
+      \author{Eegan Ram}
     \fi
     \date{\today}
   \fi
@@ -773,7 +806,7 @@
         \renewcommand{\headrulewidth}{0.5pt}
         \renewcommand{\footrulewidth}{0.0pt}
         \pagestyle{fancy}
-        \lhead{Evan Chen}
+        \lhead{Eegan Ram}
         \chead{}
         \rhead{\nouppercase{\leftmark}}
         \lfoot{}
