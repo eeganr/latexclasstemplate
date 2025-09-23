@@ -1,0 +1,350 @@
+{
+	// Place your tokieda-book workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	"Parentheses": {
+		"prefix": "par",
+		"body": [
+			"\\left($1\\right)"
+		],
+		"description": "Parentheses"
+	},
+	"Brackets": {
+		"prefix": "bra",
+		"body": [
+			"\\left\\{$1\\right\\\\}"
+		],
+		"description": "Brackets"
+	},
+	"Square Brackets": {
+		"prefix": "sqb",
+		"body": [
+			"\\left[$1\\right]"
+		],
+		"description": "Square Brackets"
+	},
+	"Fraction": {
+		"prefix": "fr",
+		"body": [
+			"\\frac{$1}{$2}"
+		],
+		"description": "Fraction"
+	},
+	"Display Math": {
+		"prefix": "dm",
+		"body": [
+			"\\[ $1 \\]"
+		],
+		"description": "Display math environment"
+	},
+	"Inline Math": {
+		"prefix": "mk",
+		"body": [
+			"$$1$"
+		],
+		"description": "Inline math environment"
+	},
+	"Display Inline": {
+		"prefix": "dil",
+		"body": [
+			"$\\ds $1$"
+		],
+		"description": "Display inline math environment"
+	},
+	"Sum": {
+		"prefix": "sum",
+		"body": [
+			"\\sum_{$1}^{$2} $3"
+		],
+		"description": "Sum notation"
+	},
+	"Prod": {
+		"prefix": "prod",
+		"body": [
+			"\\prod_{$1}^{$2} $3"
+		],
+		"description": "Product notation"
+	},
+	"Text in math": {
+		"prefix": "te",
+		"body": [
+			"\\text{ $1 }"
+		],
+		"description": "Text in math mode"
+	},
+	"Union": {
+		"prefix": "union",
+		"body": [
+			"\\bigcup_{$1}^{$2} $3"
+		],
+		"description": "Union notation"
+	},
+	"Intersection": {
+		"prefix": "inter",
+		"body": [
+			"\\bigcap_{$1}^{$2} $3"
+		],
+		"description": "Intersection notation"
+	},
+	"Limit": {
+		"prefix": "lim",
+		"body": [
+			"\\lim_{$1} $2"
+		],
+		"description": "Limits"
+	},
+	"Infinity": {
+		"prefix": "inf",
+		"body": [
+			"\\infty"
+		],
+		"description": "Infinity symbol"
+	},
+	"Inline Image": {
+		"prefix": "inlimg",
+		"body": [
+			"\\raisebox{-$1}{\\includegraphics[height=$2, keepaspectratio]{$3}}"
+		],
+		"description": "Inline image with width and file name"
+	},
+	"Closed Interval": {
+		"prefix": "cc",
+		"body": [
+			"[$1, $2]"
+		],
+		"description": "Closed interval"
+	},
+	"Open Interval": {
+		"prefix": "oo",
+		"body": [
+			"($1, $2)"
+		],
+		"description": "Open interval"
+	},
+	"Open Closed Interval": {
+		"prefix": "oc",
+		"body": [
+			"($1, $2]"
+		],
+		"description": "Open closed interval"
+	},
+	"Closed Open Interval": {
+		"prefix": "co",
+		"body": [
+			"[$1, $2)"
+		],
+		"description": "Closed open interval"
+	},
+	"Exponential": {
+		"prefix": "exp",
+		"body": [
+			"e^{$1}"
+		],
+		"description": "Exponential notation"
+	},
+	"Figure": {
+		"prefix": "fig",
+		"body": [
+			"\\begin{figure}[H]",
+			"\\centering",
+			"\\includegraphics[width=$1\\textwidth]{$2}",
+			"\\end{figure}"
+		],
+		"description": "Figure environment"
+	},
+	"Varepsilon": {
+		"prefix": "eps",
+		"body": [
+			"\\varepsilon"
+		],
+		"description": "Varepsilon symbol"
+	},
+	"Conditional Probability": {
+		"prefix": "cond",
+		"body": [
+			"\\PP($1 \\mid $2)"
+		],
+		"description": "Conditional probability notation"
+	},
+	"Conditional Expectation": {
+		"prefix": "econd",
+		"body": [
+			"\\EE($1 \\mid $2)"
+		],
+		"description": "Conditional expectation notation"
+	},
+	"Probability": {
+		"prefix": "prob",
+		"body": [
+			"\\PP($1)"
+		],
+		"description": "probability notation"
+	},
+	"Bracket Probability": {
+		"prefix": "bprob",
+		"body": [
+			"\\PP\\{$1\\\\}"
+		],
+		"description": "bracketed probability notation"
+	},
+	"Partial Derivative": {
+		"prefix": "partial",
+		"body": [
+			"\\frac{\\partial$3 $1}{\\partial $2$3}"
+		],
+		"description": "partial derivative"
+	},
+	"Derivative": {
+		"prefix": "deriv",
+		"body": [
+			"\\frac{d$3 $1}{d $2$3}"
+		],
+		"description": "partial derivative"
+	},
+	"Subfig": {
+		"prefix": "sbfig",
+		"body": [
+			"\\begin{figure}[H]",
+			"    \\centering",
+			"    \\begin{subfigure}[T]{$1\\textwidth}",
+			"        \\centering",
+			"        $2",
+			"    \\end{subfigure}",
+			"    \\begin{subfigure}[T]{$3\\textwidth}",
+			"        \\centering",
+			"        $4",
+			"    \\end{subfigure}",
+			"\\end{figure}"
+		],
+		"description": "Subfigure environment"
+	},
+	"ell": {
+		"prefix": "l",
+		"body": [
+			"\\ell"
+		],
+		"description": "ell conversion"
+	},
+	"cdot": {
+		"prefix": "*",
+		"body": [
+			"\\cdot "
+		],
+		"description": "ell conversion"
+	},
+	"enumerate": {
+		"prefix": "enum",
+		"body": [
+			"\\begin{enumerate}[$1]",
+			"    \\item $2",
+			"\\end{enumerate}"
+		],
+		"description": "Enumerate environment"
+	},
+	"underbrace": {
+		"prefix": "ub",
+		"body": [
+			"\\underbrace{$1}_{$2}"
+		],
+		"description": "Underbrace"
+	},
+	"equation mark": {
+		"prefix": "mark",
+		"body": [
+			"\\eqnmark{$2}{$1}"
+		],
+		"description": "Annotation environment"
+	},
+	"annotation": {
+		"prefix": "anno",
+		"body": [
+			"\\annotate[$1]{$2}{$3}{$4}"
+		],
+		"description": "Annotation environment"
+	},
+	"annotatetwo": {
+		"prefix": "tanno",
+		"body": [
+			"\\annotate[$1]{$2}{$3}{$4}{$5}"
+		],
+		"description": "Annotation environment"
+	},
+	"begin": {
+		"prefix": "beg",
+		"body": [
+			"\\begin{$1}$2",
+			"    $3",
+			"\\end{$1}"
+		],
+		"description": "Begin environment"
+	},
+	"code braces": {
+		"prefix": "b",
+		"body": [
+			"{$1}"
+		],
+		"description": "Code braces"
+	},
+	"plain parentheses": {
+		"prefix": "p",
+		"body": [
+			"($1)"
+		],
+		"description": "Plain parentheses"
+	},
+	"integral": {
+		"prefix": "int",
+		"body": [
+			"\\int_{$1}^{$2} $3 \\, d$4"
+		],
+		"description": "Integral notation"
+	},
+	"absolute value": {
+		"prefix": "abs",
+		"body": [
+			"\\left| $1 \\right|"
+		],
+		"description": "Absolute value notation"
+	},
+	"implies": {
+		"prefix": "implies",
+		"body": [
+			"\\implies $2"
+		],
+		"description": "Implies math symbol"
+	},
+	"circled": {
+		"prefix": "circled",
+		"body": [
+			"\\circled{$1}"
+		],
+		"description": "Circled math symbol"
+	},
+	"from": {
+		"prefix": "from",
+		"body": [
+			"\\from{$1}"
+		],
+		"description": "From text"
+	},
+	"urns": {
+		"prefix": "urns",
+		"body": [
+			"\\urns{$1}{$2}{$3}{$4}"
+		],
+		"description": "Urn image"
+	},
+}

@@ -42,7 +42,7 @@ def get_suggested_name():
 
     season = get_season(date.today())
     year = date.today().year
-    name = f"{year%100}{season}Notes"
+    name = f"{year % 100}{season}Notes"
     return name
 
 
