@@ -1,5 +1,4 @@
 {
-    "editor.quickSuggestions": {
-        "other": "off"
-    }
+    "editor.wordBasedSuggestions": "off"
+
 }
