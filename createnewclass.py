@@ -71,6 +71,10 @@ else:
 if not (repo_exists or dir_exists):
     print("Neither repository nor directory detected, creating now")
     os.mkdir(folder)
+    os.mkdir(f"{folder}/.vscode")
+    shutil.copyfile(".vscode/settings.json", f"{folder}/.vscode/settings.json")
+    shutil.copyfile(".vscode/snip.json.code-snippets", f"{folder}/.vscode/snip.json.code-snippets")
+    
     shutil.copyfile("commit.sh", f"{folder}/commit.sh")
     shutil.copyfile("commit.bat", f"{folder}/commit.bat")
     shutil.copyfile(".flake8", f"{folder}/.flake8")
@@ -109,16 +113,12 @@ if not (class_id and short_id):
 os.mkdir(f"{folder}/{class_id}")
 os.mkdir(f"{folder}/{class_id}/{short_id}_NOTES_TEMPLATE")
 os.mkdir(f"{folder}/{class_id}/{short_id}_HW_TEMPLATE")
-os.mkdir(f"{folder}/.vscode")
 
 shutil.copyfile("CLASS_ID/SHORT_HW_TEMPLATE/SHORT_HW_X.tex", f"{folder}/{class_id}/{short_id}_HW_TEMPLATE/{short_id}_HW_X.tex")
 shutil.copyfile("CLASS_ID/SHORT_NOTES_TEMPLATE/SHORT_MM-DD.tex", f"{folder}/{class_id}/{short_id}_NOTES_TEMPLATE/{short_id}_MM-DD.tex")
 
 shutil.copyfile("CLASS_ID/Notes_Setup.py", f"{folder}/{class_id}/Notes_Setup.py")
 shutil.copyfile("CLASS_ID/HW_Setup.py", f"{folder}/{class_id}/HW_Setup.py")
-
-shutil.copyfile(".vscode/settings.json", f"{folder}/.vscode/settings.json")
-shutil.copyfile(".vscode/snip.json.code-snippets", f"{folder}/.vscode/snip.json.code-snippets")
 
 def replace_ids(filename):
     with open(filename) as f:
