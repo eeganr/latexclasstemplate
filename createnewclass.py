@@ -117,7 +117,6 @@ shutil.copyfile("CLASS_ID/SHORT_NOTES_TEMPLATE/SHORT_MM-DD.tex", f"{folder}/{cla
 shutil.copyfile("CLASS_ID/Notes_Setup.py", f"{folder}/{class_id}/Notes_Setup.py")
 shutil.copyfile("CLASS_ID/HW_Setup.py", f"{folder}/{class_id}/HW_Setup.py")
 
-os.mkdir(f"{folder}/.vscode")
 shutil.copyfile(".vscode/settings.json", f"{folder}/.vscode/settings.json")
 shutil.copyfile(".vscode/snip.json.code-snippets", f"{folder}/.vscode/snip.json.code-snippets")
 
