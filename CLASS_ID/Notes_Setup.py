@@ -13,6 +13,7 @@ today = str(date.today())
 month = months[int(today[5:7]) - 1]
 month_abbr = month_abbreviations[int(today[5:7]) - 1]
 day = str(int(today[8:]))
+year = int(date.today().year)
 
 filename = f"{short_id}_{today[5:]}"
 
@@ -27,6 +28,7 @@ with open(filename) as f:
     s = f.read()
 
 with open(filename, 'w') as f:
+    s = s.replace('YYYY', year)
     s = s.replace('MMMMMMM', month)
     s = s.replace('MMM', month_abbr)
     s = s.replace('X', day)

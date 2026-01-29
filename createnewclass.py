@@ -17,7 +17,8 @@ notes_folder = os.path.dirname(os.getcwd())
 sys = platform.system() == 'Windows'
 
 def get_suggested_name():
-    Y = 2024 # dummy leap year to allow input X-02-29 (leap day)
+    today = date.today()
+    Y = int(today.year) # dummy leap year to allow input X-02-29 (leap day)
 
     if your_schedule == "quarter":
         # based roughly on stanford

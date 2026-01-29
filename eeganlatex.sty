@@ -152,7 +152,11 @@
 \usepackage{amsmath,amssymb}
 \usepackage[letterpaper]{geometry}
 \usepackage{iftex}
+\usepackage{chemformula}
+\usepackage{stackengine}
 \usepackage{float}
+\usepackage{dsfont}
+\usepackage{bm}
 \ifevanpkg
   \usepackage[minimal]{yhmath}
   \usepackage{derivative}
@@ -166,6 +170,8 @@
 \newcommand{\wt}{\widetilde}
 \newcommand{\wh}{\widehat}
 \newcommand{\eps}{\varepsilon}
+\newcommand{\notimplies}{%
+  \mathrel{{\ooalign{\hidewidth$\not\phantom{=}$\hidewidth\cr$\implies$}}}}
 \newcommand{\vocab}[1]{\textbf{\color{blue}\sffamily #1}}
 \providecommand{\alert}{\vocab}
 \providecommand{\half}{\frac{1}{2}}
@@ -216,13 +222,22 @@
 \newcommand{\BP}{\mathbf P}
 \DeclareMathOperator{\Sup}{Sup}
 \DeclareMathOperator{\Inf}{Inf}
+\newcommand{\dd}[1]{\mathrm{d}#1} % differential
 
 % Stanford Math 63DM
 
 \newcommand{\PP}{\mathbb P} % Probability
 \newcommand{\EE}{\mathbb E}
 \DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\SD}{SD}
+\DeclareMathOperator{\SE}{SE}
 \DeclareMathOperator{\var}{var}
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator{\cov}{cov}
+\DeclareMathOperator{\Cor}{Cor}
+\DeclareMathOperator{\cor}{cor}
+\DeclareMathOperator{\Corr}{Corr}
+\DeclareMathOperator{\corr}{corr}
 
 \DeclareMathOperator{\Poi}{Poi}
 \DeclareMathOperator{\Geo}{Geo}
@@ -230,6 +245,9 @@
 \DeclareMathOperator{\NegBin}{NegBin}
 \DeclareMathOperator{\Ber}{Ber}
 \DeclareMathOperator{\Exp}{Exp}
+\DeclareMathOperator{\Unif}{Unif}
+\DeclareMathOperator{\Beta}{Beta}
+\DeclareMathOperator{\Gam}{Gamma}
 
 \def\lc{\left\lceil}   
 \def\rc{\right\rceil}
@@ -239,6 +257,34 @@
 \usepackage{mathtools}
 \DeclarePairedDelimiter\autobracket{(}{)}
 \newcommand{\pa}[1]{\autobracket*{#1}}
+
+% Stanford Stats200
+\newcommand{\ind}{\perp\!\!\!\perp}
+\newcommand{\undertilde}[1]{\stackunder[1pt]{#1}{$\sim$}}
+\newcommand{\util}[1]{\stackunder[1pt]{#1}{$\sim$}}
+\newcommand{\LL}{\mathcal L} % law of X
+\newcommand{\ds}{\displaystyle}
+\newcommand{\magn}[1]{\lVert #1 \rVert} % magnitude
+\newcommand{\vb}[1]{\mathbf{#1}}
+\DeclareMathOperator{\sgn}{sgn}
+\newcommand{\iid}{\overset{iid}{\sim}}
+\newcommand{\conv}[1]{\overset{#1}{\to}}
+\newcommand{\II}{\mathbb I}
+\newcommand{\I}{\mathds 1} % indicator function
+\newcommand{\R}{\mathcal R}
+
+\DeclareMathOperator{\MSE}{MSE}
+\DeclareMathOperator{\MAE}{MAE}
+\DeclareMathOperator{\Bias}{Bias}
+\DeclareMathOperator{\Asy}{Asy}
+\DeclareMathOperator{\Eff}{Eff}
+\DeclareMathOperator{\Mono}{Mono} % Monomial
+\DeclareMathOperator{\Laplace}{Laplace} % Laplace
+
+
+% Stanford Physics120
+
+\newcommand{\ten}[1]{\stackrel{\leftrightarrow}{#1}}
 
 % Dunno
 
@@ -300,6 +346,8 @@
 \DeclareMathOperator{\Spec}{Spec} % spectrum
 \DeclareMathOperator{\Tr}{Tr} % trace
 \DeclareMathOperator{\pr}{pr} % projection
+\DeclareMathOperator{\Proj}{Proj} % projection
+\DeclareMathOperator{\proj}{proj} % projection
 \DeclareMathOperator{\ext}{ext} % extension
 \DeclareMathOperator{\pred}{pred} % predecessor
 \DeclareMathOperator{\dom}{dom} % domain
