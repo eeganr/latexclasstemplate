@@ -157,6 +157,8 @@
 \usepackage{float}
 \usepackage{dsfont}
 \usepackage{bm}
+\usepackage{calligra}
+\usepackage{cancel}
 \ifevanpkg
   \usepackage[minimal]{yhmath}
   \usepackage{derivative}
@@ -216,8 +218,8 @@
 
 % Stanford Math61CM & Math 53
 
-\newcommand{\la}{\langle}
-\newcommand{\ra}{\rangle}
+\newcommand{\la}{\left\langle}
+\newcommand{\ra}{\right\rangle}
 \newcommand{\F}{\mathcal F} % Fourier
 \newcommand{\BP}{\mathbf P}
 \DeclareMathOperator{\Sup}{Sup}
@@ -226,7 +228,7 @@
 
 % Stanford Math 63DM
 
-\newcommand{\PP}{\mathbb P} % Probability
+\newcommand{\PP}{\mathrm P} % Probability
 \newcommand{\EE}{\mathbb E}
 \DeclareMathOperator{\Var}{Var}
 \DeclareMathOperator{\SD}{SD}
@@ -285,6 +287,26 @@
 % Stanford Physics120
 
 \newcommand{\ten}[1]{\stackrel{\leftrightarrow}{#1}}
+
+\DeclareMathAlphabet{\mathcalligra}{T1}{calligra}{m}{n}
+\DeclareFontShape{T1}{calligra}{m}{n}{<->s*[2.2]callig15}{}
+\newcommand{\rcurs}{\mathcalligra{r}\,}
+\newcommand{\s}{\rcurs}
+\newcommand{\brcurs}{\pmb{\mathcalligra{r}}\,}
+\newcommand{\vbs}{\brcurs}
+
+% Stanford CS 229
+\newcommand{\Loss}{\mathcal{L}} % differential
+
+% Stanford Appphys205
+
+\newcommand{\unit}[1]{\;\mathrm{#1}}
+\newcommand{\unitspl}[1]{\mathrm{#1}}
+\newcommand{\per}[2]{\ \frac{\mathrm{#1}}{\mathrm{#2}}} % per unit
+
+% Stanford EE276
+
+\newcommand{\exeq}{\overset{\cdot}{=}} % exponentially equal
 
 % Dunno
 
@@ -559,6 +581,7 @@
       bottomline=false,
       linecolor=ForestGreen,
       backgroundcolor=ForestGreen!5,
+      nobreak=true,
     }
     \declaretheoremstyle[
       headfont=\bfseries\sffamily\color{ForestGreen!70!black},
@@ -628,6 +651,7 @@
         \declaretheorem[style=thmbluebox,name=Theorem]{theorem}
       \fi
       \declaretheorem[style=thmbluebox,name=Lemma,sibling=theorem]{lemma}
+      \declaretheorem[style=thmgreenbox,name=Property,sibling=theorem]{property}
       \declaretheorem[style=thmbluebox,name=Proposition,sibling=theorem]{proposition}
       \declaretheorem[style=thmbluebox,name=Corollary,sibling=theorem]{corollary}
       \declaretheorem[style=thmbluebox,name=Assumption,sibling=theorem]{assume}
@@ -643,7 +667,7 @@
         \declaretheorem[name=Theorem]{theorem}
       \fi
       \declaretheorem[name=Lemma,sibling=theorem]{lemma}
-      \declaretheorem[name=Proposition,sibling=theorem]{proposition}
+      \declaretheorem[name=Property,sibling=theorem]{property}
       \declaretheorem[name=Corollary,sibling=theorem]{corollary}
       \declaretheorem[name=Assumption,sibling=theorem]{assume}
       \declaretheorem[name=Theorem,numbered=no]{theorem*}
@@ -745,6 +769,11 @@
     }
   \fi
 
+
+  \definecolor{codegreen}{rgb}{0,0.6,0}
+  \definecolor{codegray}{rgb}{0.5,0.5,0.5}
+  \definecolor{codepurple}{rgb}{0.58,0,0.82}
+  \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
   %%fakesection Loads a bunch of useful packages (but allow disabling)
   \ifevanpkg
     \ifevanvonenabled
@@ -754,19 +783,22 @@
     \usepackage{mathrsfs}
     \usepackage{textcomp}
     \lstset{basicstyle=\ttfamily\small,
-      backgroundcolor=\color{yellow!3!white},
       breakatwhitespace=true,
       breaklines=true,
-      commentstyle=\color{red!70!black},
+      commentstyle=\color{codegreen},
+      keywordstyle=\color{magenta},
+      numberstyle=\tiny\color{codegray},
+      stringstyle=\color{codepurple},
+      basicstyle=\ttfamily\footnotesize,                 
+      captionpos=b,                    
+      keepspaces=true,                
+      showspaces=false,
+      showtabs=false,
       frame=shadowbox,
       frame=single,
       framerule=1pt,
-      identifierstyle=\color{green!40!black},
-      keywordstyle=\bfseries,
-      keywordstyle=\bfseries\color{blue!80!black},
       numbers=left,
       numbersep=8pt,
-      numberstyle=\scriptsize\sffamily\itshape\color{black!80},
       rulecolor=\color{blue!70!black},
       rulesepcolor=\color{blue!30!black},
       showstringspaces=false,

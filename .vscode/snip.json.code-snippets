@@ -29,10 +29,24 @@
 		],
 		"description": "Brackets"
 	},
+	"Small Brackets": {
+		"prefix": "sbra",
+		"body": [
+			"\\{$1\\\\}"
+		],
+		"description": "Brackets"
+	},
 	"Square Brackets": {
 		"prefix": "sqb",
 		"body": [
 			"\\left[$1\\right]"
+		],
+		"description": "Square Brackets"
+	},
+	"Small Square Brackets": {
+		"prefix": "sb",
+		"body": [
+			"[$1]"
 		],
 		"description": "Square Brackets"
 	},
@@ -155,15 +169,12 @@
 		],
 		"description": "Exponential notation"
 	},
-	"Figure": {
-		"prefix": "fig",
+	"Power": {
+		"prefix": "pow",
 		"body": [
-			"\\begin{figure}[H]",
-			"\\centering",
-			"\\includegraphics[width=$1\\textwidth]{$2}",
-			"\\end{figure}"
+			"10^{$1}"
 		],
-		"description": "Figure environment"
+		"description": "Power of 10 notation"
 	},
 	"Varepsilon": {
 		"prefix": "eps",
@@ -179,26 +190,47 @@
 		],
 		"description": "Conditional probability notation"
 	},
-	"Conditional Expectation": {
-		"prefix": "econd",
-		"body": [
-			"\\EE($1 \\mid $2)"
-		],
-		"description": "Conditional expectation notation"
-	},
 	"Probability": {
 		"prefix": "prob",
 		"body": [
-			"\\PP($1)"
+			"\\PP\\left($1\\right)"
 		],
 		"description": "probability notation"
 	},
 	"Bracket Probability": {
 		"prefix": "bprob",
 		"body": [
-			"\\PP\\{$1\\\\}"
+			"\\PP\\left\\{$1\\right\\\\}"
 		],
 		"description": "bracketed probability notation"
+	},
+	"Expectation": {
+		"prefix": "etn",
+		"body": [
+			"\\EE\\left[$1\\right]"
+		],
+		"description": "expectation notation"
+	},
+	"expectation": {
+		"prefix": "ee",
+		"body": [
+			"\\EE "
+		],
+		"description": "per units"
+	},
+	"Covariance": {
+		"prefix": "cov",
+		"body": [
+			"\\Cov\\left($1\\right)"
+		],
+		"description": "covariance notation"
+	},
+	"Variance": {
+		"prefix": "var",
+		"body": [
+			"\\Var\\left($1\\right)"
+		],
+		"description": "variance notation"
 	},
 	"Partial Derivative": {
 		"prefix": "partial",
@@ -210,7 +242,7 @@
 	"Derivative": {
 		"prefix": "deriv",
 		"body": [
-			"\\frac{d$3 $1}{d $2$3}"
+			"\\frac{\\dd$3 $1}{\\dd $2$3}"
 		],
 		"description": "partial derivative"
 	},
@@ -261,27 +293,6 @@
 		],
 		"description": "Underbrace"
 	},
-	"equation mark": {
-		"prefix": "mark",
-		"body": [
-			"\\eqnmark{$2}{$1}"
-		],
-		"description": "Annotation environment"
-	},
-	"annotation": {
-		"prefix": "anno",
-		"body": [
-			"\\annotate[$1]{$2}{$3}{$4}"
-		],
-		"description": "Annotation environment"
-	},
-	"annotatetwo": {
-		"prefix": "tanno",
-		"body": [
-			"\\annotate[$1]{$2}{$3}{$4}{$5}"
-		],
-		"description": "Annotation environment"
-	},
 	"begin": {
 		"prefix": "beg",
 		"body": [
@@ -292,7 +303,7 @@
 		"description": "Begin environment"
 	},
 	"code braces": {
-		"prefix": "b",
+		"prefix": "j",
 		"body": [
 			"{$1}"
 		],
@@ -308,9 +319,30 @@
 	"integral": {
 		"prefix": "int",
 		"body": [
-			"\\int_{$1}^{$2} $3 \\, d$4"
+			"\\int_{$1}^{$2} $3 \\, \\dd $4"
 		],
 		"description": "Integral notation"
+	},
+	"indefinite integral": {
+		"prefix": "idint",
+		"body": [
+			"\\int $3 \\, \\dd $4"
+		],
+		"description": "Indefinite integral notation"
+	},
+	"double integral": {
+		"prefix": "iint",
+		"body": [
+			"\\iint_{$1} $3 \\, \\dd $4"
+		],
+		"description": "Double integral notation"
+	},
+	"closed integral": {
+		"prefix": "oint",
+		"body": [
+			"\\oint_{$1} $3 \\, \\dd $4"
+		],
+		"description": "Closed Integral notation"
 	},
 	"absolute value": {
 		"prefix": "abs",
@@ -326,13 +358,6 @@
 		],
 		"description": "Implies math symbol"
 	},
-	"circled": {
-		"prefix": "circled",
-		"body": [
-			"\\circled{$1}"
-		],
-		"description": "Circled math symbol"
-	},
 	"from": {
 		"prefix": "from",
 		"body": [
@@ -340,11 +365,468 @@
 		],
 		"description": "From text"
 	},
-	"urns": {
-		"prefix": "urns",
+	"vec": {
+		"prefix": "vec",
 		"body": [
-			"\\urns{$1}{$2}{$3}{$4}"
+			"\\vec{$1}"
 		],
-		"description": "Urn image"
+		"description": "Vector notation"
 	},
+	"sin": {
+		"prefix": "sin",
+		"body": [
+			"\\sin\\left($1\\right)"
+		],
+		"description": "Sine function"
+	},
+	"cos": {
+		"prefix": "cos",
+		"body": [
+			"\\cos\\left($1\\right)"
+		],
+		"description": "Cosine function"
+	},
+	"tan": {
+		"prefix": "tan",
+		"body": [
+			"\\tan\\left($1\\right)"
+		],
+		"description": "Tangent function"
+	},
+	"chem": {
+		"prefix": "ch",
+		"body": [
+			"\\ch{$1}"
+		],
+		"description": "Chemistry notation"
+	},
+	"undertilde": {
+		"prefix": "utilde",
+		"body": [
+			"\\util{$1}"
+		],
+		"description": "Undertilde notation"
+	},
+	"theta": {
+		"prefix": "theta",
+		"body": [
+			"\\theta"
+		],
+		"description": "Theta symbol"
+	},
+	"bar": {
+		"prefix": "bar",
+		"body": [
+			"\\bar{$1}"
+		],
+		"description": "Bar notation"
+	},
+	"alpha": {
+		"prefix": "alpha",
+		"body": [
+			"\\alpha"
+		],
+		"description": "Alpha symbol"
+	},
+	"box": {
+		"prefix": "box",
+		"body": [
+			"\\boxed{$1}"
+		],
+		"description": "Boxed notation"
+	},
+	"hat": {
+		"prefix": "hat",
+		"body": [
+			"\\hat{$1}"
+		],
+		"description": "Hat notation"
+	},
+	"converges": {
+		"prefix": "conv",
+		"body": [
+			"\\conv{$1}"
+		],
+		"description": "Converges notation"
+	},
+	"ln": {
+		"prefix": "ln",
+		"body": [
+			"\\ln\\left($1\\right)"
+		],
+		"description": "Natural logarithm"
+	},
+	"log": {
+		"prefix": "log",
+		"body": [
+			"\\log$1\\left($2\\right)"
+		],
+		"description": "logarithm"
+	},
+	"magnitude": {
+		"prefix": "mag",
+		"body": [
+			"\\magn{$1}"
+		],
+		"description": "Magnitude notation"
+	},
+	"binom": {
+		"prefix": "binom",
+		"body": [
+			"\\binom{$1}{$2}"
+		],
+		"description": "Binomial coefficient"
+	},
+	"sqrt": {
+		"prefix": "sqrt",
+		"body": [
+			"\\sqrt{$1}"
+		],
+		"description": "Square root"
+	},
+	"vb": {
+		"prefix": "vd",
+		"body": [
+			"\\vb{$1}"
+		],
+		"description": "Bold vector notation"
+	},
+	"tbf": {
+		"prefix": "tbf",
+		"body": [
+			"\\textbf{$1}"
+		],
+		"description": "Bold text notation"
+	},
+	"delta": {
+		"prefix": "delta",
+		"body": [
+			"\\Delta"
+		],
+		"description": "Delta symbol"
+	},
+	"kronecker": {
+		"prefix": "kron",
+		"body": [
+			"\\delta_{$1}"
+		],
+		"description": "Kronecker delta notation"
+	},
+	"dirac": {
+		"prefix": "dirac",
+		"body": [
+			"\\delta($1)"
+		],
+		"description": "Dirac delta notation"
+	},
+	"degree": {
+		"prefix": "deg",
+		"body": [
+			"{$1}^\\circ"
+		],
+		"description": "Degree symbol"
+	},
+	"bold math": {
+		"prefix": "bm",
+		"body": [
+			"\\bm{$1}"
+		],
+		"description": "Bold math notation"
+	},
+	"stack": {
+		"prefix": "stack",
+		"body": [
+			"\\overset{$1}{$2}"
+		],
+		"description": "Stacked notation"
+	},
+	"tilde": {
+		"prefix": "tilde",
+		"body": [
+			"\\tilde{$1}"
+		],
+		"description": "Tilde notation"
+	},
+	"levi": {
+		"prefix": "levi",
+		"body": [
+			"\\epsilon_{$1}"
+		],
+		"description": "Levi-Civita symbol"
+	},
+	"bmatrix": {
+		"prefix": "matb",
+		"body": [
+			"\\begin{bmatrix}",
+			"    $1",
+			"\\end{bmatrix}"
+		],
+		"description": "Bmatrix environment"
+	},
+	"pmatrix": {
+		"prefix": "matp",
+		"body": [
+			"\\begin{pmatrix}",
+			"    $1",
+			"\\end{pmatrix}"
+		],
+		"description": "Pmatrix environment"
+	},
+	"tensor": {
+		"prefix": "ten",
+		"body": [
+			"\\ten{$1}"
+		],
+		"description": "Tensor arrows"
+	},
+	"brcursive": {
+		"prefix": "vrc",
+		"body": [
+			"\\brcurs"
+		],
+		"description": "Vrcursive notation"
+	},
+	"rcursive": {
+		"prefix": "rc",
+		"body": [
+			"\\rcurs"
+		],
+		"description": "Rcursive notation"
+	},
+	"hrcursive": {
+		"prefix": "hrc",
+		"body": [
+			"\\hrcurs"
+		],
+		"description": "Hrcursive notation"
+	},
+	"cross product": {
+		"prefix": "times",
+		"body": [
+			"\\times "
+		],
+		"description": "Cross product symbol"
+	},
+	"dot": {
+		"prefix": "dot",
+		"body": [
+			"\\cdot "
+		],
+		"description": "Dot product symbol"
+	},
+	"nabla": {
+		"prefix": "nabla",
+		"body": [
+			"\\nabla "
+		],
+		"description": "del symbol"
+	},
+	"cal": {
+		"prefix": "cal",
+		"body": [
+			"\\mathcal{$1}"
+		],
+		"description": "Calligraphic font"
+	},
+	"blackboard": {
+		"prefix": "bb",
+		"body": [
+			"\\mathbb{$1}"
+		],
+		"description": "Blackboard bold font"
+	},
+	"script": {
+		"prefix": "scr",
+		"body": [
+			"\\mathscr{$1}"
+		],
+		"description": "Script font"
+	},
+	"italic": {
+		"prefix": "tit",
+		"body": [
+			"\\textit{$1}"
+		],
+		"description": "Italic font"
+	},
+	"angle brackets": {
+		"prefix": "ang",
+		"body": [
+			"\\la $1 \\ra"
+		],
+		"description": "Italic font"
+	},
+	"cancel": {
+		"prefix": "can",
+		"body": [
+			"\\cancel{$1}"
+		],
+		"description": "Cancel notation"
+	},
+	"cancel to": {
+		"prefix": "cto",
+		"body": [
+			"\\cancelto{$1}{$2}"
+		],
+		"description": "Cancel to notation"
+	},
+	"math roman": {
+		"prefix": "rm",
+		"body": [
+			"\\mathrm{$1}"
+		],
+		"description": "Math roman font"
+	},
+	"quote": {
+		"prefix": "quote",
+		"body": [
+			"``$1''"
+		],
+		"description": "Quote environment"
+	},
+	"floor": {
+		"prefix": "floor",
+		"body": [
+			"\\lf $1 \\rf"
+		],
+		"description": "Floor function"
+	},
+	"ceiling": {
+		"prefix": "ceil",
+		"body": [
+			"\\lc $1 \\rc"
+		],
+		"description": "Ceiling function"
+	},
+	"indicator": {
+		"prefix": "ind",
+		"body": [
+			"\\I\\left\\{$1\\right\\\\}"
+		],
+		"description": "Indicator function"
+	},
+	"superscript parenthetical": {
+		"prefix": "sp",
+		"body": [
+			"{($1)}"
+		],
+		"description": "Bracket parenthetical"
+	},
+	"function notation": {
+		"prefix": "fn",
+		"body": [
+			"\\mathrm{$1}($2)"
+		],
+		"description": "Function notation"
+	},
+	"function exponential": {
+		"prefix": "fexp",
+		"body": [
+			"\\exp\\left($1\\right)"
+		],
+		"description": "Function exponential notation"
+	},
+	"units": {
+		"prefix": "uts",
+		"body": [
+			"\\unit{$1}"
+		],
+		"description": "adding units"
+	},
+	"units simple": {
+		"prefix": "ups",
+		"body": [
+			"\\unitspl{$1}"
+		],
+		"description": "adding units without space"
+	},
+	"subsection": {
+		"prefix": "sub",
+		"body": [
+			"\\subsection{$1}"
+		],
+		"description": "Subsection heading"
+	},
+	"sec": {
+		"prefix": "sec",
+		"body": [
+			"\\section{$1}"
+		],
+		"description": "section heading"
+	},
+	"ssec": {
+		"prefix": "ssec",
+		"body": [
+			"\\subsection{$1}"
+		],
+		"description": "Subsection heading"
+	},
+	"psection": {
+		"prefix": "psec",
+		"body": [
+			"\\section{Problem $1}"
+		],
+		"description": "Problem section heading"
+	},
+	"subproblem": {
+		"prefix": "spm",
+		"body": [
+			"\\subsection{Part $1}",
+			"\\begin{problem*}",
+			"    $2",
+			"\\end{problem*}"
+		],
+		"description": "Subproblem heading and description"
+	},
+	"problem": {
+		"prefix": "pm",
+		"body": [
+			"\\begin{problem*}$1",
+			"    $2",
+			"\\end{problem*}"
+		],
+		"description": "Problem description"
+	},
+	"per units": {
+		"prefix": "per",
+		"body": [
+			"\\per{$1}{$2}"
+		],
+		"description": "per units"
+	},
+	"min": {
+		"prefix": "min",
+		"body": [
+			"\\min_{$1}"
+		],
+		"description": "min function"
+	},
+	"max": {
+		"prefix": "max",
+		"body": [
+			"\\max_{$1}"
+		],
+		"description": "max function"
+	},
+	"inf": {
+		"prefix": "inf",
+		"body": [
+			"\\inf_{$1}"
+		],
+		"description": "inf function"
+	},
+	"sup": {
+		"prefix": "sup",
+		"body": [
+			"\\sup_{$1}"
+		],
+		"description": "sup function"
+	},
+	"exeq": {
+		"prefix": "eeq",
+		"body": [
+			"\\exeq "
+		],
+		"description": "Equality with exclamation mark"
+	}
 }
