@@ -112,13 +112,12 @@ if not (class_id and short_id):
     exit()
 
 os.mkdir(f"{folder}/{class_id}")
-os.mkdir(f"{folder}/{class_id}/{short_id}_NOTES_TEMPLATE")
 os.mkdir(f"{folder}/{class_id}/{short_id}_HW_TEMPLATE")
+os.mkdir(f"{folder}/{class_id}/{short_id}_Notes")
 
 shutil.copyfile("CLASS_ID/SHORT_HW_TEMPLATE/SHORT_HW_X.tex", f"{folder}/{class_id}/{short_id}_HW_TEMPLATE/{short_id}_HW_X.tex")
-shutil.copyfile("CLASS_ID/SHORT_NOTES_TEMPLATE/SHORT_MM-DD.tex", f"{folder}/{class_id}/{short_id}_NOTES_TEMPLATE/{short_id}_MM-DD.tex")
+shutil.copyfile("CLASS_ID/SHORT_Notes/SHORT_Notes.tex", f"{folder}/{class_id}/{short_id}_Notes/{short_id}_Notes.tex")
 
-shutil.copyfile("CLASS_ID/Notes_Setup.py", f"{folder}/{class_id}/Notes_Setup.py")
 shutil.copyfile("CLASS_ID/HW_Setup.py", f"{folder}/{class_id}/HW_Setup.py")
 
 def replace_ids(filename):
@@ -140,12 +139,11 @@ def replace_name(filename):
     with open(filename, 'w') as f:
         s = s.replace('First Last', your_name)
         f.write(s)
-    
-replace_ids(f"{folder}/{class_id}/Notes_Setup.py")
+
 replace_ids(f"{folder}/{class_id}/HW_Setup.py")
-replace_ids(f"{folder}/{class_id}/{short_id}_NOTES_TEMPLATE/{short_id}_MM-DD.tex")
+replace_ids(f"{folder}/{class_id}/{short_id}_Notes/{short_id}_Notes.tex")
 replace_ids(f"{folder}/{class_id}/{short_id}_HW_TEMPLATE/{short_id}_HW_X.tex")
-replace_name(f"{folder}/{class_id}/{short_id}_NOTES_TEMPLATE/{short_id}_MM-DD.tex")
+replace_name(f"{folder}/{class_id}/{short_id}_Notes/{short_id}_Notes.tex")
 replace_name(f"{folder}/{class_id}/{short_id}_HW_TEMPLATE/{short_id}_HW_X.tex")
 
 command = f'git init; git add .; git commit -m "{class_id} added"'
